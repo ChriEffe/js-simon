@@ -10,9 +10,16 @@ Consigli del giorno:
 
 // array con 5 numeri casuali
 let array = arrayRand(5)
-// lo stampo in pagina
-document.writeln(array);
 
+// seleziono elemento dal dom
+const listNumber = document.querySelector('.number');
+// stampo array  in pagina
+listNumber.append(array);
+
+// lo faccio sparire dopo 5 secondi
+let timerArray = setTimeout(function () {
+    listNumber.innerHTML = '';
+}, 5000);
 
 
 
