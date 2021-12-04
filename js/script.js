@@ -17,10 +17,33 @@ const listNumber = document.querySelector('.number');
 listNumber.append(array);
 
 // lo faccio sparire dopo 5 secondi
-let timerArray = setTimeout(function () {
+setTimeout(function () {
     listNumber.innerHTML = '';
 }, 5000);
 
+// array numeri inseriti dall'utente
+let userArray = [];
+// array dei numeri indovinati
+let sameNumbers = [];
+// faccio inserire all'utente 5 numeri dopo 30 secondi
+setTimeout(function () {
+    for (let i = 0; i < 5; i++) {
+        let userNumber = parseInt(prompt('Inserisci i numeri che hai visto uno per volta'));
+        // se i numeri sono già nell'array
+        while (userArray.includes(userNumber)) {
+            // appare questo messagio
+            userNumber = parseInt(prompt('Inserisci numeri diversi tra loro'));
+        }
+        userArray.push(userNumber);
+        
+        // confronto i numeri dell'utente con quelli generati random
+        if (array.includes(userNumber) && !(sameNumbers.includes(userArray))) {
+            sameNumbers.push(userNumber);
+        }
+    }    
+    console.log(userArray);
+    console.log(sameNumbers);
+}, 8000)
 
 
 
