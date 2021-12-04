@@ -13,6 +13,7 @@ let array = arrayRand(5)
 
 // seleziono elemento dal dom
 const listNumber = document.querySelector('.number');
+const indovinati = document.querySelector('.indovinati');
 // stampo array  in pagina
 listNumber.append(array);
 
@@ -36,14 +37,16 @@ setTimeout(function () {
         }
         userArray.push(userNumber);
         
-        // confronto i numeri dell'utente con quelli generati random
+        // confronto i numeri dell'utente con quelli generati random, se sono uguali li pusho nell'array dei numeri indovinati
         if (array.includes(userNumber) && !(sameNumbers.includes(userArray))) {
             sameNumbers.push(userNumber);
         }
-    }    
+    }
+    listNumber.append(`I numeri da ricordare erano: ${array}`);
+    indovinati.append(`I numeri che hai indovinato sono: ${sameNumbers}`);    
     console.log(userArray);
     console.log(sameNumbers);
-}, 8000)
+}, 35000)
 
 
 
